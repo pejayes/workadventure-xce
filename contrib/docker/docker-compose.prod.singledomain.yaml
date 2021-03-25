@@ -13,7 +13,7 @@ services:
       - --providers.file.directory=/configs/
       - --certificatesresolvers.myhttpchallenge.acme.tlschallenge=true
       - --certificatesresolvers.myhttpchallenge.acme.email=$ACME_EMAIL
-      - --certificatesresolvers.myhttpchallenge.acme.storage=/acme.json
+      - --certificatesresolvers.myhttpchallenge.acme.storage=/acme/acme.json
     ports:
       - "80:80"
       - "443:443"
@@ -24,7 +24,7 @@ services:
       - pusher
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - ./acme.json:/acme.json
+      - ./acme:/acme
       - ./traefik_tls.yaml:/configs/traefik_tls.yml
       - ./.htpasswd:/.htpasswd  
 
