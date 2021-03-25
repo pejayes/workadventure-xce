@@ -13,7 +13,7 @@ services:
       - --providers.file.directory=/configs/
       - --certificatesresolvers.myhttpchallenge.acme.tlschallenge=true
       - --certificatesresolvers.myhttpchallenge.acme.email=$ACME_EMAIL
-      - --certificatesresolvers.myhttpchallenge.acme.storage=/letsencrypt/acme.json
+      - --certificatesresolvers.myhttpchallenge.acme.storage=/acme.json
     ports:
       - "80:80"
       - "443:443"
