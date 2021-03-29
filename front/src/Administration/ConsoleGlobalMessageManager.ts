@@ -5,6 +5,8 @@ import {PlayGlobalMessageInterface} from "../Connexion/ConnexionModels";
 import {ADMIN_URL} from "../Enum/EnvironmentVariable";
 import {AdminMessageEventTypes} from "../Connexion/AdminMessagesService";
 
+const Quill = require("quill");
+
 export const CLASS_CONSOLE_MESSAGE = 'main-console';
 export const INPUT_CONSOLE_MESSAGE = 'input-send-text';
 export const UPLOAD_CONSOLE_MESSAGE = 'input-upload-music';
@@ -162,8 +164,6 @@ export class ConsoleGlobalMessageManager {
         this.divMessageConsole.appendChild(section);
 
         (async () => {
-            // Import quill
-            const Quill:any = await import("quill"); // eslint-disable-line @typescript-eslint/no-explicit-any
 
             const toolbarOptions = [
                 ['bold', 'italic', 'underline', 'strike'],        // toggled buttons

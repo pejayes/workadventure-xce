@@ -39,7 +39,8 @@ export class LoginScene extends ResizableScene {
 
     create() {
 
-        this.nameInput = new TextInput(this, this.game.renderer.width / 2, 70, 10, this.name,(text: string) => {
+        this.textField = new TextField(this, this.game.renderer.width / 2, 50, 'Enter your name:');
+        this.nameInput = new TextInput(this, this.game.renderer.width / 2, 70, 12, this.name,(text: string) => {
             this.name = text;
             localUserStore.setName(text);
         })
