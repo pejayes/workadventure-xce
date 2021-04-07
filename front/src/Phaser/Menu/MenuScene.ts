@@ -286,8 +286,8 @@ export class MenuScene extends Phaser.Scene {
             case 'editGameSettingsButton':
                 this.openGameSettingsMenu();
                 break;
-            case 'showJoystick':
-                this.showJoystick();
+            case 'toggleFullscreen':
+                this.toggleFullscreen();
                 break;
             case 'adminConsoleButton':
                 gameManager.getCurrentGameScene(this).ConsoleGlobalMessageManager.activeMessageConsole();
@@ -327,13 +327,7 @@ export class MenuScene extends Phaser.Scene {
         this.gameReportElement.close();
     }
 
-    private showJoystick() {
-        const gameScene = gameManager.getCurrentGameScene(this)
-        if (gameScene?.virtualJoystick) {
-            const joystickVisible = !gameScene.virtualJoystick.visible
-            gameScene.virtualJoystick.visible = joystickVisible
-            localUserStore.setJoystick(joystickVisible)
-        }
+    private toggleFullscreen() {
         const body = document.querySelector('body')
         if (body) {
             if (document.fullscreenElement ?? document.fullscreen) {
